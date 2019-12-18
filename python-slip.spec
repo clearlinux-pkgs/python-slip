@@ -4,7 +4,7 @@
 #
 Name     : python-slip
 Version  : 0.6.5
-Release  : 3
+Release  : 4
 URL      : https://github.com/nphilipp/python-slip/releases/download/python-slip-0.6.5/python-slip-0.6.5.tar.bz2
 Source0  : https://github.com/nphilipp/python-slip/releases/download/python-slip-0.6.5/python-slip-0.6.5.tar.bz2
 Summary  : Convenience, extension and workaround code for Python 2.x
@@ -14,7 +14,9 @@ Requires: python-slip-license = %{version}-%{release}
 Requires: python-slip-python = %{version}-%{release}
 Requires: python-slip-python3 = %{version}-%{release}
 Requires: decorator
+Requires: six
 BuildRequires : decorator
+BuildRequires : six
 
 %description
 The Simple Library for Python 2.x packages contain miscellaneous code for
@@ -50,13 +52,14 @@ python3 components for the python-slip package.
 
 %prep
 %setup -q -n python-slip-0.6.5
+cd %{_builddir}/python-slip-0.6.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1563546225
+export SOURCE_DATE_EPOCH=1576698563
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -69,10 +72,10 @@ make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1563546225
+export SOURCE_DATE_EPOCH=1576698563
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/python-slip
-cp COPYING %{buildroot}/usr/share/package-licenses/python-slip/COPYING
+cp %{_builddir}/python-slip-0.6.5/COPYING %{buildroot}/usr/share/package-licenses/python-slip/4a5b0415695c09bc33ed154339a3d50d4ee1275c
 %make_install
 
 %files
@@ -80,7 +83,7 @@ cp COPYING %{buildroot}/usr/share/package-licenses/python-slip/COPYING
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/python-slip/COPYING
+/usr/share/package-licenses/python-slip/4a5b0415695c09bc33ed154339a3d50d4ee1275c
 
 %files python
 %defattr(-,root,root,-)
