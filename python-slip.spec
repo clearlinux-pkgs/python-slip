@@ -4,7 +4,7 @@
 #
 Name     : python-slip
 Version  : 0.6.5
-Release  : 4
+Release  : 5
 URL      : https://github.com/nphilipp/python-slip/releases/download/python-slip-0.6.5/python-slip-0.6.5.tar.bz2
 Source0  : https://github.com/nphilipp/python-slip/releases/download/python-slip-0.6.5/python-slip-0.6.5.tar.bz2
 Summary  : Convenience, extension and workaround code for Python 2.x
