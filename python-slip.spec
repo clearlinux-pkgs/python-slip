@@ -4,10 +4,10 @@
 #
 Name     : python-slip
 Version  : 0.6.5
-Release  : 5
+Release  : 6
 URL      : https://github.com/nphilipp/python-slip/releases/download/python-slip-0.6.5/python-slip-0.6.5.tar.bz2
 Source0  : https://github.com/nphilipp/python-slip/releases/download/python-slip-0.6.5/python-slip-0.6.5.tar.bz2
-Summary  : Convenience, extension and workaround code for Python 2.x
+Summary  : Convenience, extension and workaround code for Python and some Python modules
 Group    : Development/Tools
 License  : GPL-2.0 GPL-2.0+
 Requires: python-slip-license = %{version}-%{release}
@@ -59,7 +59,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576698563
+export SOURCE_DATE_EPOCH=1583214861
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -72,7 +73,7 @@ make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1576698563
+export SOURCE_DATE_EPOCH=1583214861
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/python-slip
 cp %{_builddir}/python-slip-0.6.5/COPYING %{buildroot}/usr/share/package-licenses/python-slip/4a5b0415695c09bc33ed154339a3d50d4ee1275c
