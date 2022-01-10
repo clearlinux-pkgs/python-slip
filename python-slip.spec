@@ -4,19 +4,17 @@
 #
 Name     : python-slip
 Version  : 0.6.5
-Release  : 19
+Release  : 20
 URL      : https://github.com/nphilipp/python-slip/releases/download/python-slip-0.6.5/python-slip-0.6.5.tar.bz2
 Source0  : https://github.com/nphilipp/python-slip/releases/download/python-slip-0.6.5/python-slip-0.6.5.tar.bz2
-Summary  : Convenience, extension and workaround code for Python and some Python modules
+Summary  : Convenience, extension and workaround code for Python 2.x
 Group    : Development/Tools
 License  : GPL-2.0 GPL-2.0+
 Requires: python-slip-license = %{version}-%{release}
 Requires: python-slip-python = %{version}-%{release}
 Requires: python-slip-python3 = %{version}-%{release}
-Requires: decorator
-Requires: six
-BuildRequires : decorator
-BuildRequires : six
+Requires: pypi(decorator)
+Requires: pypi(six)
 
 %description
 The Simple Library for Python 2.x packages contain miscellaneous code for
@@ -59,21 +57,20 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583214861
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1641838847
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1583214861
+export SOURCE_DATE_EPOCH=1641838847
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/python-slip
 cp %{_builddir}/python-slip-0.6.5/COPYING %{buildroot}/usr/share/package-licenses/python-slip/4a5b0415695c09bc33ed154339a3d50d4ee1275c
